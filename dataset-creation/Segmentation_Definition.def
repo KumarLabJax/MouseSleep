@@ -1,0 +1,19 @@
+Bootstrap: docker
+From: nvcr.io/nvidia/tensorflow:19.02-py3
+
+# EllfitTrackingCode is the ellipse-fit tracking code. Can be cloned from the public repo here: https://github.com/KumarLabJax/MouseTracking
+# trained-model is the folder containing the trained segmentation network. A copy can be found in the kumarlab network share: smb://bht2stor/vkumar/VideosFromOtherLabs/UpennSleep_Raspi/Trained480x480SegmentationModel
+# InfervideoData.py is in the same repo as this file: https://bitbucket.jax.org/projects/KL/repos/video-sleep-analysis/browse/dataset-creation/InfervideoData.py
+
+%files
+	/home/bgeuther/Desktop/TensorFlow_Tutorial/Github/MouseTracking /inference-environment-code
+	/media/bgeuther/LL6_Internal/TEMP/video-sleep-analysis/trained-model/ /inference-environment-model
+	/media/bgeuther/LL6_Internal/TEMP/video-sleep-analysis/dataset-creation/InfervideoData.py /inference-environment-code/.
+
+%post
+	pip install imageio opencv-python-headless scipy imageio-ffmpeg
+	chmod -R a+rw /inference-environment-code
+	chmod -R a+rw /inference-environment-model
+
+# Typical usage is done by the following:
+# singularity exec --nv UPennInferImg.simg sh -c "python /inference-environment-code/InfervideoData.py --input_movie 'input_movie.h264'"

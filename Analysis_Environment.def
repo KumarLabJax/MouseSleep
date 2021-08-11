@@ -1,0 +1,17 @@
+Bootstrap: docker
+From: python:3.7-slim-buster
+
+%setup
+	mkdir -p ${SINGULARITY_ROOTFS}/pipeline/training_set
+
+%files
+	dataset-creation/ExportOneAnimal.py /pipeline/ExportOneAnimal.py
+	dataset-creation/Sleep_feature_generation.py /pipeline/Sleep_feature_generation.py
+	dataset-creation/Sleep_train_classifier.py /pipeline/Sleep_train_classifier.py
+	classifier-analysis/df_features_10s_17_full_hu.csv /pipeline/training_set/gt_dataset.csv
+
+%post
+	pip install numpy scipy pandas feather-format plotnine statsmodels pyarrow==0.16.0 scikit-learn xgboost hmm-filter opencv-python
+	apt-get update && apt-get install -y ffmpeg python3-tk
+	chmod guo+x -R /pipeline
+
