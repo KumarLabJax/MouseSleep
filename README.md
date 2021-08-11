@@ -35,11 +35,11 @@
 ## Breathing Rate Plots
 
 1. Plots were created using [this code](breathing-data/AnalyzeStats.py)
-2. Merged output file can be found on our Zenodo dataset (TODO)[Add Link]
+2. Merged output file can be found on our Zenodo dataset (here)[https://zenodo.org/deposit/5180680]
 3. Merged output file was produced using example code found in [wavelet-analysis](wavelet-analysis/). This code is meant for example resources for creating data used in the paper and will not be supported. The primary wavelet analysis code that is supported is found in the [feature generation code](dataset-creation/Sleep_feature_generation.py)
 
 # Licensing
 
 This code is released under MIT license.
 
-The feature data produced in the associated paper used in training models are released on Zenodo (here)[Add LINK] under a Non-Commercial license. Please visit the link for more info.
+The feature data produced in the associated paper used in training models are released on Zenodo (here)[https://zenodo.org/record/5180680] under a Non-Commercial license. Please visit the link for more info.
