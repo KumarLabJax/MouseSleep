@@ -11,7 +11,7 @@ From: python:3.7-slim-buster
 	classifier-analysis/df_features_10s_17_full_hu.csv /pipeline/training_set/gt_dataset.csv
 
 %post
-	pip install numpy scipy pandas feather-format plotnine statsmodels pyarrow==0.16.0 scikit-learn xgboost hmm-filter opencv-python
+	pip install numpy scipy pandas feather-format plotnine statsmodels pyarrow==0.16.0 scikit-learn xgboost hmm-filter opencv-python imageio
 	apt-get update && apt-get install -y ffmpeg python3-tk
 	chmod guo+x -R /pipeline
 
