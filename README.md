@@ -20,10 +20,9 @@
 3. Merge segmentation data with eeg/emg annotations into feather format using [this code](dataset-creation/ExportOneAnimal.py)
 4. Generate features for classifier using [this code](dataset-creation/Sleep_feature_generation.py)
 5. (Optional) Merge multiple animal videos into one for a training dataset.
-    - This is achieved simply appending multiple csv files. In linux, you can use a command similar to this: `head -n 1 file1.csv > combined.out && tail -n+2 -q *.csv >> combined.out && mv combines.csv combined.csv`
+    - This is achieved simply appending multiple csv files. In linux, you can use a command similar to this: `head -n 1 file1.csv > combined.out && tail -n+2 -q *.csv >> combined.out && mv combined.out combined.csv`
 6. Train a classifier and create predictions on data using [this code](dataset-creation/Sleep_train_classifier.py)
     - Note: Our final classifier used in the paper was trained using the following seed: 1438939568.
-7. 
 
 # Analysis Code
 
